@@ -15,133 +15,167 @@ Work through all 10 steps in order. Do not skip steps. **Always begin with the M
 
 ## MCQ Intake Form — Complete Before Writing Anything
 
-When the user invokes this skill, the very first thing you do is present this complete intake form. Ask all questions at once. Do not start any research, writing, or analysis until the user has answered every required question. Use `AskUserQuestion` to present the questions where the tool is available; otherwise display them as a numbered list in chat.
-
-Present the following questions exactly:
+When the user invokes this skill, the very first thing you do is run the intake form below. Present exactly **5 questions at a time** using the `AskUserQuestion` tool so the user can click their answers. Wait for the user to answer each batch before showing the next one. Do not start any research, writing, or analysis until all 4 batches are complete.
 
 ---
 
-**Section A — Page Type & Business**
+### Batch 1 of 4 — Page Type & Business
 
-**Q1. What type of page are you creating?**
-- A) Service Page (one service, one city — e.g., "Junk Removal in Chicago")
-- B) Location Page (one location hub covering all services — e.g., "Junk Removal Chicago")
-- C) Blog Post / Informational Article
-- D) Landing Page (paid ads / campaign)
+Call `AskUserQuestion` with these 4 questions (maximum the tool allows per call):
 
-**Q2. What is the business name?**
-*(Free text — type the exact business name)*
+```
+Q1. What type of page are you creating?
+Options:
+- Service Page — one service, one city (e.g. "Junk Removal in Chicago")
+- Location Page — one city hub covering all services (e.g. "Junk Removal Chicago")
+- Blog Post / Informational Article
+- Landing Page — paid ads or campaign
 
-**Q3. What is the business niche / industry?**
-- A) Junk Removal
-- B) Moving Services
-- C) Plumbing
-- D) HVAC
-- E) Appliance Removal
-- F) Cleaning Services
-- G) Landscaping / Lawn Care
-- H) Roofing
-- I) Electrician
-- J) Painting
-- K) Pressure Washing
-- L) Other *(type it)*
+Q2. What is the business niche / industry?
+Options:
+- Junk Removal
+- Moving Services
+- Plumbing / HVAC
+- Appliance Removal
+- Cleaning Services
+- Landscaping / Lawn Care
+- Roofing / Painting / Pressure Washing
+- Other (type it in the notes box)
 
-**Q4. What is the primary city and state this page targets?**
-*(Free text — e.g., "Brooklyn, NY")*
+Q3. Who are the target customers for this page?
+Options:
+- Residential only
+- Commercial only
+- Both residential and commercial
+- Mixed — depends on the service
 
-**Q5. List all service areas (cities, neighborhoods, ZIP codes) this business covers.**
-*(Free text — paste or list them)*
+Q4. Does the business have an existing website?
+Options:
+- Yes — I will paste the URL after this batch
+- No — brand new or no website
+- Not sure
+```
 
----
-
-**Section B — Service Details**
-
-**Q6. What is the exact service this page is about?**
-*(Free text — e.g., "Appliance Removal", "Full-Service Moving", "Emergency Plumbing")*
-
-**Q7. What does the service INCLUDE?**
-*(Free text — list everything included: e.g., "haul away old appliances, load and transport, same-day pickup")*
-
-**Q8. What does the service NOT INCLUDE?**
-*(Free text — e.g., "No installation, no repair, no hazardous materials")*
-
-**Q9. Who are the target customers?**
-- A) Residential only
-- B) Commercial only
-- C) Both residential and commercial
-- D) Other *(type it)*
-
-**Q10. What makes this business stand out from competitors?**
-*(Free text — e.g., "same-day availability, upfront pricing, licensed and insured, local family-owned")*
+After the user answers Batch 1, say: "Got it — 3 more quick batches and we're done." Then immediately present Batch 2.
 
 ---
 
-**Section C — Keywords & SEO**
+### Batch 2 of 4 — Service & Location Details
 
-**Q11. What is the primary keyword for this page?**
-*(Free text — e.g., "appliance removal brooklyn")*
+Call `AskUserQuestion` with these 4 questions:
 
-**Q12. What is the verified search volume for that primary keyword?**
-*(Free text — e.g., "320" — enter 0 or "unknown" if not available)*
+```
+Q5. What is the primary keyword for this page?
+Options:
+- I know it — I will type it in the notes box
+- I have a keyword list to paste
+- I need you to research and recommend one
+- I have a keyword sheet — I will upload/paste it
 
-**Q13. Do you have a keyword research sheet to paste/upload?**
-- A) Yes — I will paste it after this form
-- B) No — generate keywords from scratch
+Q6. Do you have competitor heading structures to share?
+Options:
+- Yes — I will paste them after this batch
+- No — skip competitor analysis
+- I have some but not all competitors
+- Research competitors yourself
 
-**Q14. Do you have competitor heading structures to share?**
-- A) Yes — I will paste them after this form
-- B) No — skip competitor analysis
+Q7. What tone should the content use?
+Options:
+- Friendly and neighborly (warm, community feel)
+- Professional and authoritative (expert, confident)
+- Conversational and casual (plain-spoken, relatable)
+- Mix of professional and friendly — research and recommend
 
----
+Q8. What is the target word count for this page?
+Options:
+- Short — 600 to 900 words
+- Medium — 900 to 1,400 words
+- Long — 1,400 to 2,000 words
+- Comprehensive — 2,000+ words
+- No preference — match what ranks for this keyword
+```
 
-**Section D — Content & Tone**
-
-**Q15. What tone should the content use?**
-- A) Friendly and neighborly (warm, approachable, community feel)
-- B) Professional and authoritative (expert, confident, business-like)
-- C) Conversational and casual (relaxed, plain-spoken, relatable)
-- D) A mix of professional and friendly
-- E) Match the local audience tone (research and recommend)
-
-**Q16. Does the business have an existing website?**
-- A) Yes *(paste the URL)*
-- B) No
-
-**Q17. Are there any services the business offers that should be used for internal linking?**
-*(Free text — list related services, or type "none")*
-
-**Q18. Are there any specific local landmarks, neighborhoods, or areas you definitely want mentioned?**
-*(Free text — e.g., "Williamsburg, Park Slope, DUMBO" — or type "research and recommend")*
-
----
-
-**Section E — Quality Standards**
-
-**Q19. What is the target word count for this page?**
-- A) Short (600–900 words)
-- B) Medium (900–1,400 words)
-- C) Long (1,400–2,000 words)
-- D) Comprehensive (2,000+ words)
-- E) No preference — match what ranks
-
-**Q20. Should the page include a FAQ section?**
-- A) Yes
-- B) No
-- C) Only if competitors have one
-
-**Q21. Should the page include a pricing / cost section?**
-- A) Yes — include pricing info
-- B) No — do not mention pricing
-- C) Only if supported by keyword intent
-
-**Q22. Should the page include a how-it-works / process section?**
-- A) Yes
-- B) No
-- C) Only if it adds value
+After the user answers Batch 2, say: "Almost there — 2 more batches." Then immediately present Batch 3.
 
 ---
 
-Once the user submits this form, confirm you have received all answers, then proceed through Steps 1–10 automatically using the provided information. Do not re-ask for information already given in the form. Where the user answered "research and recommend," perform that research as part of the relevant step.
+### Batch 3 of 4 — Content Sections
+
+Call `AskUserQuestion` with these 4 questions:
+
+```
+Q9. Should the page include a FAQ section?
+Options:
+- Yes — always include it
+- No — skip FAQ
+- Only if competitors have one
+- Only if keyword data supports it
+
+Q10. Should the page include a pricing / cost section?
+Options:
+- Yes — include pricing information
+- No — do not mention pricing
+- Only if supported by keyword intent
+- Show a price range only (no exact figures)
+
+Q11. Should the page include a how-it-works / process section?
+Options:
+- Yes — show the step-by-step process
+- No — skip it
+- Only if it adds value for this service
+
+Q12. Are there specific local neighborhoods, landmarks, or areas to mention?
+Options:
+- Yes — I will list them in the notes box
+- No — research and recommend naturally
+- Mention only the main city, no neighborhoods
+- Include surrounding cities too
+```
+
+After the user answers Batch 3, say: "Last batch — just 3 more questions." Then immediately present Batch 4.
+
+---
+
+### Batch 4 of 4 — Keyword Data & Internal Linking
+
+Call `AskUserQuestion` with these 3 questions:
+
+```
+Q13. Do you have a keyword research sheet to provide?
+Options:
+- Yes — I will paste it right after this batch
+- No — generate all keywords from scratch
+- I have a partial list — I will paste what I have
+
+Q14. Should the page include internal links to other services?
+Options:
+- Yes — I will list the related services after this batch
+- No — no internal links needed
+- Only link to the most relevant 2 or 3 services
+- Research and recommend which services to link
+
+Q15. What makes this business stand out from competitors?
+Options:
+- Same-day or next-day availability
+- Upfront flat-rate pricing with no hidden fees
+- Licensed, insured, and locally owned
+- Eco-friendly disposal or recycling focus
+- Other (type it in the notes box)
+- I will describe it after this batch
+```
+
+---
+
+### After All 4 Batches Are Complete
+
+Once the user finishes Batch 4:
+
+1. Summarize all answers in a short confirmation list so the user can spot any mistakes
+2. Ask: "Does everything look right? Type any corrections or just say go and I'll start."
+3. Once confirmed, proceed through Steps 1–10 automatically using the provided answers
+4. Do not re-ask for any information already collected in the form
+5. Where the user answered "research and recommend," perform that research as part of the relevant step
+6. Where the user said they would paste data (keywords, competitors, website URL, service list), ask for that specific input at the appropriate step — do not hold up the entire workflow waiting for it upfront
 
 ---
 
